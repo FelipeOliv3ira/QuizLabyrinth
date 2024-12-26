@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="roomData" load_steps=3 format=3 uid="uid://c0g4ylo3eesph"]
+
+[ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_k6so7"]
+[ext_resource type="Script" path="res://Scripts/Resources/roomResource.gd" id="1_pk4xp"]
+
+[resource]
+script = ExtResource("1_pk4xp")
+prefab = ExtResource("1_k6so7")

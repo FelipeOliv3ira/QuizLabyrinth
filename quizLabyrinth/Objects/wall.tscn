@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bckq1s1fvrrn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsk0n"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="Skin" id="Skin_sskt8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ame8i"]
+
+[node name="Wall" type="MeshInstance3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.513494, 0.225161, -156.806)
+mesh = SubResource("BoxMesh_nsk0n")
+skin = SubResource("Skin_sskt8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_ame8i")

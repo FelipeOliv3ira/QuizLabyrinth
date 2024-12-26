@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://vl5ec52pqgjx"]
+
+[ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_10jb3"]
+[ext_resource type="Resource" uid="uid://xucaxupihbft" path="res://Resources/MainLabyrinth.tres" id="2_gj1uu"]
+[ext_resource type="Script" path="res://Scripts/mazeGenerator.gd" id="3_h5sqv"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="3_hrp51"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo4ss"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 1.45
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8rhjp"]
+sky_material = SubResource("ProceduralSkyMaterial_bo4ss")
+
+[sub_resource type="Environment" id="Environment_vdw0r"]
+background_mode = 2
+sky = SubResource("Sky_8rhjp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hkgn5"]
+
+[node name="Labyrinth" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vdw0r")
+
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="Maze" type="Node3D" parent="." node_paths=PackedStringArray("Player")]
+script = ExtResource("3_h5sqv")
+mazeTemplate = ExtResource("2_gj1uu")
+WallPrefab = ExtResource("1_10jb3")
+Player = NodePath("../Player")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("3_hrp51")
+speed = 10.0
+rotation_speed = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(4.275, 0, 0, 0, 4.275, 0, 0, 0, 4.275, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_hkgn5")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]

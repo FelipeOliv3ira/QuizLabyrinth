@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://vl5ec52pqgjx"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_svlnl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsk0n"]
+size = Vector3(0.4, 1, 1)
+
+[sub_resource type="Skin" id="Skin_sskt8"]
+
+[node name="Labyrinth" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(93.525, 0, 0, 0, 93.525, 0, 0, 0, 93.525, 0.513494, 0.225161, -96.999)
+mesh = SubResource("BoxMesh_nsk0n")
+skin = SubResource("Skin_sskt8")
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("1_svlnl")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27135, -0.283, 3.59961)
