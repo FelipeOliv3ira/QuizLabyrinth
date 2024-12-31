@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=3 format=3 uid="uid://csexiraqth1w"]
+
+[ext_resource type="VideoStream" path="res://assets/video/wiggle-cat-wiggle.ogv" id="1_cxqia"]
+[ext_resource type="Script" path="res://Scripts/resources/question.gd" id="1_jil7f"]
+
+[resource]
+script = ExtResource("1_jil7f")
+question_info = "Que Animal é esse?"
+type = 3
+question_video = ExtResource("1_cxqia")
+options = Array[String](["Cachorrinho", "Porquinho", "Gatinho", "Coelhinho"])
+correct = "Gatinho"

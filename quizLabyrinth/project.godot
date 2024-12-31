@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/fabimakesgames.embed_game/plugin.cfg")

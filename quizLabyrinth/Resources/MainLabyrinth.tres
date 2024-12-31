@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="mazeData" load_steps=4 format=3 uid="uid://xucaxupihbft"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/mazeResource.gd" id="1_500aq"]
+[ext_resource type="Script" path="res://Scripts/ScrptResources/mazeResource.gd" id="1_500aq"]
 [ext_resource type="Resource" uid="uid://c0g4ylo3eesph" path="res://Resources/EndRoom.tres" id="1_cowhm"]
-[ext_resource type="Script" path="res://Scripts/Resources/roomResource.gd" id="1_iax26"]
+[ext_resource type="Script" path="res://Scripts/ScrptResources/roomResource.gd" id="1_iax26"]
 
 [resource]
 script = ExtResource("1_500aq")

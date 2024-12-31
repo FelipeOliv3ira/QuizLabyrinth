@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=4 format=3 uid="uid://mouexnb01jxf"]
+
+[ext_resource type="AudioStream" uid="uid://cwdxvrbjglt0m" path="res://assets/audio/pig-sound-234810.mp3" id="1_8bb8e"]
+[ext_resource type="Script" path="res://Scripts/resources/question.gd" id="1_s4cax"]
+[ext_resource type="Texture2D" uid="uid://cvx7fey11lk04" path="res://assets/sprites/Sound.png" id="2_dx1p6"]
+
+[resource]
+script = ExtResource("1_s4cax")
+question_info = "Qual animal faz esse som"
+type = 2
+question_image = ExtResource("2_dx1p6")
+question_audio = ExtResource("1_8bb8e")
+options = Array[String](["Hiena", "Alce", "Javali", "Porco"])
+correct = "Porco"
