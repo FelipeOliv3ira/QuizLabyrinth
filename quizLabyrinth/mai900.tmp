@@ -1,0 +1,158 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3imopdq6e7uc"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/game_controller.gd" id="1_yhype"]
+[ext_resource type="Resource" uid="uid://biwfsjnou2h5x" path="res://Resources/varied/theme_varied.tres" id="2_bg2rg"]
+[ext_resource type="AudioStream" uid="uid://1eqphn44yo7q" path="res://Resources/audio/correct.mp3" id="3_tsl0q"]
+[ext_resource type="AudioStream" uid="uid://uoctlwksckpd" path="res://Resources/audio/incorrect.mp3" id="4_tnn0a"]
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_yhype")
+quiz = ExtResource("2_bg2rg")
+color_right = Color(0, 1, 0, 1)
+color_wrong = Color(1, 0, 0, 1)
+
+[node name="content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionInfo" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.002
+anchor_right = 0.989
+anchor_bottom = 0.372
+offset_left = 11.0
+offset_top = 0.44
+offset_right = -0.0800171
+offset_bottom = -0.160004
+
+[node name="QuestionText" type="Label" parent="content/QuestionInfo"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "Pergunta
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ImageHolder" type="Panel" parent="content/QuestionInfo"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="QuestionImage" type="TextureRect" parent="content/QuestionInfo/ImageHolder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="questionVideo" type="VideoStreamPlayer" parent="content/QuestionInfo/ImageHolder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.992
+offset_bottom = 0.199982
+expand = true
+loop = true
+
+[node name="QuestionAudio" type="AudioStreamPlayer" parent="content/QuestionInfo/ImageHolder"]
+
+[node name="QuestionHolder" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.42
+anchor_right = 0.983
+anchor_bottom = 0.979
+offset_left = 0.039999
+offset_top = 0.399963
+offset_right = 0.23999
+offset_bottom = -0.120117
+theme_override_constants/separation = 20
+
+[node name="ButtonOption1" type="Button" parent="content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="ButtonOption2" type="Button" parent="content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="ButtonOption3" type="Button" parent="content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="ButtonOption4" type="Button" parent="content/QuestionHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="GameOver" type="ColorRect" parent="content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3058, 0.631594, 0.328539, 1)
+
+[node name="Title" type="Label" parent="content/GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 163.0
+offset_right = 245.0
+offset_bottom = 312.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Você acertou: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="content/GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_top = 653.0
+offset_right = 225.0
+offset_bottom = 802.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRestart" type="Button" parent="content/GameOver"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 1008.0
+offset_right = 627.0
+offset_bottom = 1207.0
+theme_override_font_sizes/font_size = 40
+text = "Jogar novamente
+"
+
+[node name="AudioCorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tsl0q")
+
+[node name="AudioIncorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tnn0a")
+
+[connection signal="pressed" from="content/GameOver/ButtonRestart" to="." method="_on_button_pressed"]

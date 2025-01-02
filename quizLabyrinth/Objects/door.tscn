@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxl28yh41errn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsk0n"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="Skin" id="Skin_sskt8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ame8i"]
+size = Vector3(2.03833, 2.56683, 2.23209)
+
+[node name="Door" type="MeshInstance3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 10, 35.3699, 3.55114, -71.7321)
+mesh = SubResource("BoxMesh_nsk0n")
+skin = SubResource("Skin_sskt8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.800003, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0233397, 0.626733, -0.168445)
+shape = SubResource("BoxShape3D_ame8i")

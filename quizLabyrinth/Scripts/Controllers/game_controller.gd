@@ -71,7 +71,7 @@ func _buttons_answer(button) -> void:
 	else: 
 		button.modulate = color_wrong
 		$AudioIncorrect.play()
-		
+	self.queue_free()
 	_next_question()
 		
 func _next_question() -> void:

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://vl5ec52pqgjx"]
+[gd_scene load_steps=11 format=3 uid="uid://vl5ec52pqgjx"]
 
 [ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_10jb3"]
+[ext_resource type="Script" path="res://Scripts/labyrinthManager.gd" id="1_qtwj3"]
 [ext_resource type="Resource" uid="uid://xucaxupihbft" path="res://Resources/MainLabyrinth.tres" id="2_gj1uu"]
 [ext_resource type="Script" path="res://Scripts/mazeGenerator.gd" id="3_h5sqv"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_hrp51"]
+[ext_resource type="PackedScene" uid="uid://dxl28yh41errn" path="res://Objects/door.tscn" id="6_1yd4i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo4ss"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,7 +23,9 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hkgn5"]
 
-[node name="Labyrinth" type="Node3D"]
+[node name="Labyrinth" type="Node3D" node_paths=PackedStringArray("interactButton")]
+script = ExtResource("1_qtwj3")
+interactButton = NodePath("Control/Button")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vdw0r")
@@ -31,6 +35,8 @@ environment = SubResource("Environment_vdw0r")
 [node name="Maze" type="Node3D" parent="." node_paths=PackedStringArray("Player")]
 script = ExtResource("3_h5sqv")
 mazeTemplate = ExtResource("2_gj1uu")
+DoorPrefab = ExtResource("6_1yd4i")
+DoorNumbers = 5
 WallPrefab = ExtResource("1_10jb3")
 Player = NodePath("../Player")
 
@@ -44,3 +50,26 @@ transform = Transform3D(4.275, 0, 0, 0, 4.275, 0, 0, 0, 4.275, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_hkgn5")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.025
+anchor_top = 21.325
+anchor_right = 11.5
+anchor_bottom = 23.55
+offset_right = -3.05176e-05
+offset_bottom = -6.10352e-05
+text = "INTERAGIR"
+flat = true
+
+[node name="Wall" parent="." instance=ExtResource("1_10jb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.3699, 3.55114, -71.7321)
+
+[node name="Door" parent="." instance=ExtResource("6_1yd4i")]
