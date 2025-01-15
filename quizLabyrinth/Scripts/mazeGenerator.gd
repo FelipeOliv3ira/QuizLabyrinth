@@ -175,7 +175,8 @@ func instanciar_porta_aleatoria():
 					adj_paths += 1
 				
 				if adj_paths >= 2: # Certifica-se de que não é um beco sem saída
-					posicoes_validas.append(Vector2(x, y))
+					if (labirinto[y - 1][x] == 1 and labirinto[y + 1][x] == 1 and labirinto[y][x - 1] == 0 and labirinto[y][x + 1] == 0) or (labirinto[y][x - 1] == 1 and labirinto[y][x + 1] == 1 and labirinto[y - 1][x] == 0 and labirinto[y + 1][x] == 0):
+						posicoes_validas.append(Vector2(x, y))
 
 	for i in range(DoorNumbers):
 		var posicao_selecionada = Vector2(-1, -1)
@@ -211,6 +212,8 @@ func instanciar_porta_aleatoria():
 			var door_instance = DoorPrefab.instantiate()
 			add_child(door_instance)
 			door_instance.global_transform.origin = Vector3(posicao_selecionada.x * cell_size, 0, posicao_selecionada.y * cell_size)
+			if labirinto[posicao_selecionada.y - 1][posicao_selecionada.x] == 1 and labirinto[posicao_selecionada.y + 1][posicao_selecionada.x] == 1: 
+				door_instance.rotate_y(deg_to_rad(90))
 
 
 

@@ -30,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			#	moving_multi = 1
 			#else:
 			#	moving_multi = 3
-			print (mouse_delta)
+			#print (mouse_delta)
 			if abs(mouse_delta.y) < 80:
 				moving_multi = 0
 			elif abs(mouse_delta.y) > 80 && abs(mouse_delta.y) < 180:

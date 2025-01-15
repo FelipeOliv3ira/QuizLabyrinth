@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxl28yh41errn"]
+[gd_scene load_steps=6 format=3 uid="uid://dxl28yh41errn"]
+
+[ext_resource type="Script" path="res://Scripts/objectInteraction.gd" id="1_7c0in"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nsk0n"]
 size = Vector3(0.8, 0.8, 0.8)
 
 [sub_resource type="Skin" id="Skin_sskt8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cow0p"]
+size = Vector3(1.84619, 1, 13.3041)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ame8i"]
 size = Vector3(2.03833, 2.56683, 2.23209)
@@ -12,6 +17,13 @@ size = Vector3(2.03833, 2.56683, 2.23209)
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 10, 35.3699, 3.55114, -71.7321)
 mesh = SubResource("BoxMesh_nsk0n")
 skin = SubResource("Skin_sskt8")
+script = ExtResource("1_7c0in")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.178955, 0, -0.350434)
+shape = SubResource("BoxShape3D_cow0p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

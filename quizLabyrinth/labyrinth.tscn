@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://vl5ec52pqgjx"]
+[gd_scene load_steps=14 format=3 uid="uid://vl5ec52pqgjx"]
 
 [ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_10jb3"]
 [ext_resource type="Script" path="res://Scripts/labyrinthManager.gd" id="1_qtwj3"]
+[ext_resource type="PackedScene" uid="uid://c3imopdq6e7uc" path="res://main.tscn" id="2_ewthr"]
 [ext_resource type="Resource" uid="uid://xucaxupihbft" path="res://Resources/MainLabyrinth.tres" id="2_gj1uu"]
 [ext_resource type="Script" path="res://Scripts/mazeGenerator.gd" id="3_h5sqv"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_hrp51"]
 [ext_resource type="PackedScene" uid="uid://dxl28yh41errn" path="res://Objects/door.tscn" id="6_1yd4i"]
+[ext_resource type="Script" path="res://Scripts/labyButton.gd" id="7_5ldil"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo4ss"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,9 +25,13 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hkgn5"]
 
-[node name="Labyrinth" type="Node3D" node_paths=PackedStringArray("interactButton")]
+[sub_resource type="BoxMesh" id="BoxMesh_oyppu"]
+
+[node name="Labyrinth" type="Node3D" node_paths=PackedStringArray("interactButton", "button")]
 script = ExtResource("1_qtwj3")
 interactButton = NodePath("Control/Button")
+quizScene = ExtResource("2_ewthr")
+button = NodePath("Control/Button")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vdw0r")
@@ -33,6 +39,7 @@ environment = SubResource("Environment_vdw0r")
 [node name="GridMap" type="GridMap" parent="."]
 
 [node name="Maze" type="Node3D" parent="." node_paths=PackedStringArray("Player")]
+process_mode = 4
 script = ExtResource("3_h5sqv")
 mazeTemplate = ExtResource("2_gj1uu")
 DoorPrefab = ExtResource("6_1yd4i")
@@ -40,23 +47,27 @@ DoorNumbers = 5
 WallPrefab = ExtResource("1_10jb3")
 Player = NodePath("../Player")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 script = ExtResource("3_hrp51")
 speed = 10.0
 rotation_speed = 0.3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" groups=["Player"]]
 transform = Transform3D(4.275, 0, 0, 0, 4.275, 0, 0, 0, 4.275, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_hkgn5")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -473.86, 0.0232158, -409.605)
+[node name="Camera3D" type="Camera3D" parent="Player" groups=["Player"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" groups=["Player"]]
+transform = Transform3D(50.46, 0, 0, 0, 50.46, 0, 0, 0, 50.46, 0, 0, 0)
+mesh = SubResource("BoxMesh_oyppu")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_5ldil")
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 1
@@ -74,3 +85,4 @@ flat = true
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.3699, 3.55114, -71.7321)
 
 [node name="Door" parent="." instance=ExtResource("6_1yd4i")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 10, -5.46774, 29.0688, -235.687)

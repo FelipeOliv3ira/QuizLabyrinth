@@ -28,6 +28,10 @@ window/size/viewport_height=1280
 
 enabled=PackedStringArray("res://addons/fabimakesgames.embed_game/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [rendering]
 
 renderer/rendering_method="mobile"
