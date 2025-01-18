@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/resources/new_script.gd" id="1_d3xfc"]
 [ext_resource type="Script" path="res://Scripts/resources/question.gd" id="2_38f1l"]
-[ext_resource type="Resource" uid="uid://benjrwxcmgrfd" path="res://resources/varied/question/animal_come_com_rabo.tres" id="3_g5v8s"]
-[ext_resource type="Resource" uid="uid://ff1jexcb13b5" path="res://resources/varied/question/audio_lobo.tres" id="4_0t326"]
-[ext_resource type="Resource" uid="uid://mouexnb01jxf" path="res://resources/varied/question/audio_porco.tres" id="5_sp4pc"]
-[ext_resource type="Resource" uid="uid://csexiraqth1w" path="res://resources/varied/question/cat_video.tres" id="6_crm7u"]
-[ext_resource type="Resource" uid="uid://322ovmftaslt" path="res://resources/varied/question/image_elephant.tres" id="7_ttlgl"]
-[ext_resource type="Resource" uid="uid://8lgqbw38l15g" path="res://resources/varied/question/melhor_amigo_homem.tres" id="8_375c8"]
+[ext_resource type="Resource" uid="uid://benjrwxcmgrfd" path="res://Resources/varied/question/animal_come_com_rabo.tres" id="3_g5v8s"]
+[ext_resource type="Resource" uid="uid://ff1jexcb13b5" path="res://Resources/varied/question/audio_lobo.tres" id="4_0t326"]
+[ext_resource type="Resource" uid="uid://mouexnb01jxf" path="res://Resources/varied/question/audio_porco.tres" id="5_sp4pc"]
+[ext_resource type="Resource" uid="uid://csexiraqth1w" path="res://Resources/varied/question/cat_video.tres" id="6_crm7u"]
+[ext_resource type="Resource" uid="uid://322ovmftaslt" path="res://Resources/varied/question/image_elephant.tres" id="7_ttlgl"]
+[ext_resource type="Resource" uid="uid://8lgqbw38l15g" path="res://Resources/varied/question/melhor_amigo_homem.tres" id="8_375c8"]
 
 [resource]
 script = ExtResource("1_d3xfc")
-theme = Array[ExtResource("2_38f1l")]([ExtResource("3_g5v8s"), ExtResource("4_0t326"), ExtResource("5_sp4pc"), ExtResource("6_crm7u"), ExtResource("7_ttlgl"), ExtResource("8_375c8")])
+theme = Array[ExtResource("2_38f1l")]([ExtResource("4_0t326"), ExtResource("3_g5v8s"), ExtResource("5_sp4pc"), ExtResource("6_crm7u"), ExtResource("7_ttlgl"), ExtResource("8_375c8")])

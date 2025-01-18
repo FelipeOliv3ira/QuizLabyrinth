@@ -23,15 +23,16 @@ func _ready() -> void:
 	for button in $content/QuestionHolder.get_children():
 		buttons.append(button)
 		
-	randomize_array(quiz.theme)
+	#randomize_array(quiz.theme)
 	load_quiz()
 		
 
 func load_quiz() -> void:
-	if index >= quiz.theme.size():
-		_game_over()
-		return
-		
+	#if index >= quiz.theme.size():
+	#	_game_over()
+	#	return
+	index = randi() % quiz.theme.size()
+	#current_quiz = quiz.theme.pick_random()
 	question_text.text = current_quiz.question_info
 	
 	
@@ -74,7 +75,6 @@ func _buttons_answer(button) -> void:
 		$AudioIncorrect.play()
 		labyrinthManager._on_quiz_won (false)
 	self.queue_free()
-	_next_question()
 		
 func _next_question() -> void:
 	for bt in buttons:
