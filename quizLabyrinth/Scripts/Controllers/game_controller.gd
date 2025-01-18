@@ -16,7 +16,7 @@ var current_quiz: QuizQuestion:
 @onready var question_video: VideoStreamPlayer = $content/QuestionInfo/ImageHolder/questionVideo
 @onready var question_audio: AudioStreamPlayer = $content/QuestionInfo/ImageHolder/QuestionAudio
 
-
+@export var labyrinthManager: Node
 
 func _ready() -> void:
 	correct = 0
@@ -68,9 +68,11 @@ func _buttons_answer(button) -> void:
 		button.modulate = color_right
 		correct += 1
 		$AudioCorrect.play()
+		labyrinthManager._on_quiz_won (true)
 	else: 
 		button.modulate = color_wrong
 		$AudioIncorrect.play()
+		labyrinthManager._on_quiz_won (false)
 	self.queue_free()
 	_next_question()
 		

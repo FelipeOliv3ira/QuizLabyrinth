@@ -39,7 +39,6 @@ environment = SubResource("Environment_vdw0r")
 [node name="GridMap" type="GridMap" parent="."]
 
 [node name="Maze" type="Node3D" parent="." node_paths=PackedStringArray("Player")]
-process_mode = 4
 script = ExtResource("3_h5sqv")
 mazeTemplate = ExtResource("2_gj1uu")
 DoorPrefab = ExtResource("6_1yd4i")

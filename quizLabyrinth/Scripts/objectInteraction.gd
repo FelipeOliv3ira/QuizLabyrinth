@@ -9,8 +9,10 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	
 	if body.is_in_group("Player"):
+		
 		print("entrou")  # Verifique se é o jogador que entrou na área
 		var labyrinth_manager = get_node("/root/Labyrinth")
+		labyrinth_manager.interactedObject = self
 		labyrinth_manager.activate_interactButton()
 
 func _on_body_exited(body: Node) -> void:
@@ -18,4 +20,5 @@ func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		print("saiu")  # Verifique se é o jogador que saiu da área
 		var labyrinth_manager = get_node("/root/Labyrinth")
+		
 		labyrinth_manager.deactivate_interactButton()
