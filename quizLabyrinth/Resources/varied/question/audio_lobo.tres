@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="QuizQuestion" load_steps=4 format=3 uid="uid://ff1jexcb13b5"]
 
 [ext_resource type="Script" path="res://Scripts/resources/question.gd" id="1_71pdd"]
-[ext_resource type="AudioStream" uid="uid://bk6kuhxa4y0oy" path="res://assets/audio/wolf-howl-268619.mp3" id="1_osche"]
-[ext_resource type="Texture2D" uid="uid://cvx7fey11lk04" path="res://assets/sprites/Sound.png" id="2_scojq"]
+[ext_resource type="AudioStream" uid="uid://bk6kuhxa4y0oy" path="res://Scripts/Controllers/assets/audio/wolf-howl-268619.mp3" id="1_osche"]
+[ext_resource type="Texture2D" uid="uid://cvx7fey11lk04" path="res://Scripts/Controllers/assets/sprites/Sound.png" id="2_scojq"]
 
 [resource]
 script = ExtResource("1_71pdd")

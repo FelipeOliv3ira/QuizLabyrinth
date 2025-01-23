@@ -16,22 +16,23 @@ var current_quiz: QuizQuestion:
 @onready var question_video: VideoStreamPlayer = $content/QuestionInfo/ImageHolder/questionVideo
 @onready var question_audio: AudioStreamPlayer = $content/QuestionInfo/ImageHolder/QuestionAudio
 
-
+@export var labyrinthManager: Node
 
 func _ready() -> void:
 	correct = 0
 	for button in $content/QuestionHolder.get_children():
 		buttons.append(button)
 		
-	randomize_array(quiz.theme)
+	#randomize_array(quiz.theme)
 	load_quiz()
 		
 
 func load_quiz() -> void:
-	if index >= quiz.theme.size():
-		_game_over()
-		return
-		
+	#if index >= quiz.theme.size():
+	#	_game_over()
+	#	return
+	index = randi() % quiz.theme.size()
+	#current_quiz = quiz.theme.pick_random()
 	question_text.text = current_quiz.question_info
 	
 	
@@ -68,11 +69,12 @@ func _buttons_answer(button) -> void:
 		button.modulate = color_right
 		correct += 1
 		$AudioCorrect.play()
+		labyrinthManager._on_quiz_won (true)
 	else: 
 		button.modulate = color_wrong
 		$AudioIncorrect.play()
+		labyrinthManager._on_quiz_won (false)
 	self.queue_free()
-	_next_question()
 		
 func _next_question() -> void:
 	for bt in buttons:

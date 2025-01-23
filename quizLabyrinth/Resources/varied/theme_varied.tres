@@ -11,4 +11,4 @@
 
 [resource]
 script = ExtResource("1_d3xfc")
-theme = Array[ExtResource("2_38f1l")]([ExtResource("3_g5v8s"), ExtResource("4_0t326"), ExtResource("5_sp4pc"), ExtResource("6_crm7u"), ExtResource("7_ttlgl"), ExtResource("8_375c8")])
+theme = Array[ExtResource("2_38f1l")]([ExtResource("4_0t326"), ExtResource("3_g5v8s"), ExtResource("5_sp4pc"), ExtResource("6_crm7u"), ExtResource("7_ttlgl"), ExtResource("8_375c8")])
