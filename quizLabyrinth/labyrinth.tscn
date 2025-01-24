@@ -39,7 +39,6 @@ environment = SubResource("Environment_vdw0r")
 [node name="GridMap" type="GridMap" parent="."]
 
 [node name="Maze" type="Node3D" parent="." node_paths=PackedStringArray("Player")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76752, -0.433105, 3.28516)
 script = ExtResource("3_h5sqv")
 mazeTemplate = ExtResource("2_gj1uu")

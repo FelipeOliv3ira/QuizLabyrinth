@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d024iu8pkn7e8"]
+[gd_scene load_steps=10 format=3 uid="uid://d024iu8pkn7e8"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_oe25l"]
 [ext_resource type="Texture2D" uid="uid://bhbse4ldnwo1a" path="res://Resources/Winsdom Labyrinth logo.jpg" id="1_ykntu"]
 [ext_resource type="FontFile" uid="uid://dp6tfbdttbf2p" path="res://Resources/AgreloyS1.ttf" id="2_5nbao"]
+[ext_resource type="PackedScene" uid="uid://cwtbamnsl678e" path="res://options_menu.tscn" id="4_eg1t8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwcya"]
 texture = ExtResource("1_ykntu")
@@ -67,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 80
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Start_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -83,7 +84,7 @@ text = "Start Game
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Settings_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -117,5 +118,9 @@ text = "Winsdooh labyrnth"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[node name="Options_Menu" parent="." instance=ExtResource("4_eg1t8")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Start_button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings_button" to="." method="_on_settings_pressed"]
