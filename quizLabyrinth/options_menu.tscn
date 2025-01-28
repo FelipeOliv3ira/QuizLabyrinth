@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://options_menu.gd" id="1_vg6t5"]
 
 [sub_resource type="SystemFont" id="SystemFont_fnbjo"]
+subpixel_positioning = 0
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3
@@ -47,3 +48,5 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
