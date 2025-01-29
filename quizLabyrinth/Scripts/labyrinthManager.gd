@@ -31,3 +31,7 @@ func _on_quiz_won(won: bool)-> void:
 	if (won == true) :
 		interactedObject.queue_free()
 		deactivate_interactButton()
+
+func quit() -> void:
+	
+	pass
