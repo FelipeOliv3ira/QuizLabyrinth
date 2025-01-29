@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cncspcf0cmxdc"]
+
+[ext_resource type="Texture2D" uid="uid://dnewvqim10yj6" path="res://assets/sprites/MinimapSymbols/wallSymbol.png" id="1_78j30"]
+
+[node name="WallSymbol" type="Sprite2D"]
+position = Vector2(621, 90)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("1_78j30")

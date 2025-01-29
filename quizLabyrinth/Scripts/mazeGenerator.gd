@@ -1,5 +1,6 @@
 extends Node3D
 
+@onready var minimap_node: Node2D = $"../Control/MinimapHUD/Minimap"
 @export var mazeTemplate: mazeData
 
 @export var DoorPrefab: PackedScene
@@ -12,7 +13,7 @@ extends Node3D
 
 var largura = 15
 var altura = 15
-var labirinto = []
+@export var labirinto = []
 
 func _ready():
 	if mazeTemplate != null :
@@ -38,6 +39,11 @@ func _ready():
 	call_deferred("gerar_paredes_3D")
 	call_deferred("instanciar_porta_aleatoria")
 	call_deferred("transportar_player")
+	
+	if minimap_node != null:
+		minimap_node.labirinto = labirinto  # Passa o array labirinto para o minimapa
+	else:
+		print("Minimap node is not assigned!")
 
 func gerar_labirinto(x, y):
 	var direcoes = [Vector2(0, -1), Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0)]

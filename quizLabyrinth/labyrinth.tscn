@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vl5ec52pqgjx"]
+[gd_scene load_steps=16 format=3 uid="uid://vl5ec52pqgjx"]
 
 [ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_10jb3"]
 [ext_resource type="Script" path="res://Scripts/labyrinthManager.gd" id="1_qtwj3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_hrp51"]
 [ext_resource type="PackedScene" uid="uid://dxl28yh41errn" path="res://Objects/door.tscn" id="6_1yd4i"]
 [ext_resource type="Script" path="res://Scripts/labyButton.gd" id="7_5ldil"]
+[ext_resource type="Script" path="res://Scripts/minimap.gd" id="9_amypf"]
+[ext_resource type="PackedScene" uid="uid://cncspcf0cmxdc" path="res://Objects/MinimapSymbols/wall_symbol.tscn" id="9_qarqu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo4ss"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -81,8 +83,20 @@ offset_bottom = -6.10352e-05
 text = "INTERAGIR"
 flat = true
 
-[node name="Wall" parent="." instance=ExtResource("1_10jb3")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.3699, 3.55114, -71.7321)
+[node name="MinimapHUD" type="Control" parent="Control"]
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 0
+offset_left = 534.0
+offset_top = 134.0
+offset_right = 582.32
+offset_bottom = 177.8
 
-[node name="Door" parent="." instance=ExtResource("6_1yd4i")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 10, -5.46774, 29.0688, -235.687)
+[node name="PlayerSymbol" parent="Control/MinimapHUD" instance=ExtResource("9_qarqu")]
+modulate = Color(3.27289e-06, 0.67761, 0.910187, 1)
+position = Vector2(30, 30)
+
+[node name="Minimap" type="Node2D" parent="Control/MinimapHUD"]
+script = ExtResource("9_amypf")
+WallMinimapSprite = ExtResource("9_qarqu")
