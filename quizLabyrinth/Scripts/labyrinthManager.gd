@@ -31,6 +31,9 @@ func _on_quiz_won(won: bool)-> void:
 	if (won == true) :
 		interactedObject.queue_free()
 		deactivate_interactButton()
+		PlayerStatus.set_coins(PlayerStatus.coins + 10)
+	else :
+		PlayerStatus.set_health (PlayerStatus.health - 1)
 
 func quit() -> void:
 	

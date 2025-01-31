@@ -2,10 +2,11 @@ extends Node2D
 
 @export var labirinto: Array = []
 @export var WallMinimapSprite: PackedScene
+@export var DoorMinimapSprite: PackedScene
 
 @onready var minimap_rotation_container = $".."
 @onready var minimap_content = $"."
-@onready var player_icon = $WallSymbol
+@onready var player_icon = $"../PlayerSymbol"
 @onready var player: Node3D = $"../../../Player"
 
 func _ready():
@@ -24,6 +25,10 @@ func gerar_minimapa():
 				var wall_instance = WallMinimapSprite.instantiate() as Sprite2D
 				add_child(wall_instance)
 				wall_instance.position = start_position + Vector2(x * cell_spacing, y * cell_spacing)
+			if labirinto[y][x] == 5:
+				var door_instance = DoorMinimapSprite.instantiate() as Sprite2D
+				add_child(door_instance)
+				door_instance.position = start_position + Vector2(x * cell_spacing, y * cell_spacing)
 
 func update_minimap():
 	if player != null:

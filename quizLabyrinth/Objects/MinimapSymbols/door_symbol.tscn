@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgu5ub0eou68"]
+
+[ext_resource type="Texture2D" uid="uid://dnewvqim10yj6" path="res://assets/sprites/MinimapSymbols/wallSymbol.png" id="1_gk7qr"]
+
+[node name="DoorSymbol" type="Sprite2D"]
+self_modulate = Color(1, 0.345765, 0.66311, 1)
+position = Vector2(621, 90)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("1_gk7qr")

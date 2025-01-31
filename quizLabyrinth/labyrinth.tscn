@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vl5ec52pqgjx"]
+[gd_scene load_steps=18 format=3 uid="uid://vl5ec52pqgjx"]
 
 [ext_resource type="PackedScene" uid="uid://bckq1s1fvrrn" path="res://Objects/wall.tscn" id="1_10jb3"]
 [ext_resource type="Script" path="res://Scripts/labyrinthManager.gd" id="1_qtwj3"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/labyButton.gd" id="7_5ldil"]
 [ext_resource type="Script" path="res://Scripts/minimap.gd" id="9_amypf"]
 [ext_resource type="PackedScene" uid="uid://cncspcf0cmxdc" path="res://Objects/MinimapSymbols/wall_symbol.tscn" id="9_qarqu"]
+[ext_resource type="PackedScene" uid="uid://drgu5ub0eou68" path="res://Objects/MinimapSymbols/door_symbol.tscn" id="11_wy0pe"]
+[ext_resource type="Script" path="res://Scripts/resourcesHud.gd" id="12_qbyjs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo4ss"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -100,3 +102,23 @@ position = Vector2(30, 30)
 [node name="Minimap" type="Node2D" parent="Control/MinimapHUD"]
 script = ExtResource("9_amypf")
 WallMinimapSprite = ExtResource("9_qarqu")
+DoorMinimapSprite = ExtResource("11_wy0pe")
+
+[node name="ResourcesHUD" type="Node2D" parent="Control"]
+script = ExtResource("12_qbyjs")
+
+[node name="coins_text" type="RichTextLabel" parent="Control/ResourcesHUD"]
+offset_left = 72.0
+offset_top = 120.0
+offset_right = 196.0
+offset_bottom = 146.0
+text = "00"
+tab_size = 5
+
+[node name="hp_hud" type="RichTextLabel" parent="Control/ResourcesHUD"]
+offset_left = 72.0
+offset_top = 148.0
+offset_right = 196.0
+offset_bottom = 175.0
+text = "00"
+tab_size = 5

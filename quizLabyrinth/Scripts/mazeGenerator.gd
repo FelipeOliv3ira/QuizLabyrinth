@@ -29,21 +29,24 @@ func _ready():
 	gerar_labirinto(1, 1)
 
 	# 3 = fim
+	#4= cAMINHO
+	#5 = Porta
 	colocar_fim()
 
 	marcar_caminho()
 
+
+
+	call("gerar_paredes_3D")
+	call("instanciar_porta_aleatoria")
+	call_deferred("transportar_player")
 	for linha in labirinto:
 		print(linha)
-
-	call_deferred("gerar_paredes_3D")
-	call_deferred("instanciar_porta_aleatoria")
-	call_deferred("transportar_player")
-	
 	if minimap_node != null:
 		minimap_node.labirinto = labirinto  # Passa o array labirinto para o minimapa
 	else:
 		print("Minimap node is not assigned!")
+		
 
 func gerar_labirinto(x, y):
 	var direcoes = [Vector2(0, -1), Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0)]
@@ -58,6 +61,7 @@ func gerar_labirinto(x, y):
 			labirinto[ny][nx] = 0
 			gerar_labirinto(nx, ny)
 	labirinto[1][1] = 2
+	
 
 func colocar_fim():
 	var max_distance = 0
@@ -216,10 +220,14 @@ func instanciar_porta_aleatoria():
 			posicoes_validas.erase(posicao_selecionada)  # Remover a posição selecionada para evitar duplicatas
 			portas_instanciadas.append(posicao_selecionada)
 			var door_instance = DoorPrefab.instantiate()
+			
 			add_child(door_instance)
 			door_instance.global_transform.origin = Vector3(posicao_selecionada.x * cell_size, 0, posicao_selecionada.y * cell_size)
+			labirinto[posicao_selecionada.y][posicao_selecionada.x] = 5
 			if labirinto[posicao_selecionada.y - 1][posicao_selecionada.x] == 1 and labirinto[posicao_selecionada.y + 1][posicao_selecionada.x] == 1: 
 				door_instance.rotate_y(deg_to_rad(90))
+				
+
 
 
 
